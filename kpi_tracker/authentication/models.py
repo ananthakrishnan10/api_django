@@ -12,7 +12,7 @@ class User(AbstractUser):
         related_name="user_role",
         null=True,
         blank=True,
-        default=2
+        # default=2
     )
     project_name = models.CharField(max_length=250, null=False)
     address = models.CharField(max_length=250, null=False)
