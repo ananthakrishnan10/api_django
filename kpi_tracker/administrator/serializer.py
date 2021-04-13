@@ -10,6 +10,9 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(
         allow_null=False, validators=[UniqueValidator(queryset=User.objects.all())]
     )
+    password = serializers.CharField(
+        allow_null=False
+    )
     first_name = serializers.CharField(allow_null=False)
     last_name = serializers.CharField(allow_null=False)
     phone_number = serializers.RegexField("[0-9]{10}")
@@ -26,5 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
             "phone_number",
             "comments",
             "unique_id",
-            "id"
+            "id",
+            "role",
+            "password"
         ]

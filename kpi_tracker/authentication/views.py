@@ -48,28 +48,20 @@ class LoginAPIView(APIView):
         data = request.data
 
         try:
-            username = data["username"]
+            email = data["email"]
             password = data["password"]
-            _user = get_object_or_404(User, username=username)
+            _user = get_object_or_404(User, email=email)
         except:
             resp = {
-                "data": {
-                    "password": username,
-                    "username": password,
-                },
-                "message": "Username not found",
+                "message": "email not found",
             }
             return Response(resp, status=status.HTTP_404_NOT_FOUND)
 
         try:
-            user = get_object_or_404(User, username=username, password=password)
+            user = get_object_or_404(User, email=email, password=password)
 
         except:
             resp = {
-                "data": {
-                    "password": password,
-                    "username": username,
-                },
                 "message": "Incorrect password",
             }
             return Response(resp, status=status.HTTP_404_NOT_FOUND)
@@ -100,6 +92,8 @@ class RegisterView(APIView):
         unique_id = generate_random_unique_id()
         input_data["username"] = unique_id
         input_data["unique_id"] = unique_id
+        input_data["role"] = 2
+        print(input_data)
         serializer = SignupSerializer(data=input_data)
         if serializer.is_valid():
             serializer.save()

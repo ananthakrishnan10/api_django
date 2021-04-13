@@ -12,8 +12,8 @@ class User(AbstractUser):
         related_name="user_role",
         null=True,
         blank=True,
-        # default=2
     )
+    password = models.CharField(max_length=20, null=False, blank=False)
     project_name = models.CharField(max_length=250, null=False)
     address = models.CharField(max_length=250, null=False)
     phone_number = models.CharField(max_length=250, null=False)

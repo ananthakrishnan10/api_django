@@ -23,20 +23,21 @@ class UserCreateList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def create(self, request, *args,
-               **kwargs):
+    def create(self, request, *args, **kwargs):
         input_data = request.data
         unique_id = generate_random_unique_id()
         input_data["username"] = unique_id
         input_data["unique_id"] = unique_id
+        input_data["role"] = 2
         serializer = UserSerializer(data=input_data)
         if serializer.is_valid():
             serializer.save()
         else:
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
-
-
-        return Response(serializer.data, status.HTTP_201_CREATED)
+        res_data = {
+            "message": "User has added"
+        }
+        return Response(res_data, status.HTTP_201_CREATED)
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
