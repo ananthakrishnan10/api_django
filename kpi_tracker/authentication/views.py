@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import status
-from rest_framework.generics import get_object_or_404
+from rest_framework.generics import get_object_or_404, GenericAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -148,7 +148,7 @@ class RefreshTokenView(APIView):
         access_token["last_name"] = user.last_name
         refresh_token = token
         login_response_obj = LoginRespObj(access_token, refresh_token, user)
-        login_response = LoginResponseSerializer(login_response_obj)
+        login_response = LoginResponseSerializer(login_response_obj).data
         login_response["email"] = user.email
         login_response["username"] = user.username
         login_response["id"] = user.id

@@ -1,5 +1,9 @@
+import json
+import os
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+
+from .models import File, FileData
 from authentication.models import User
 
 
@@ -10,9 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(
         allow_null=False, validators=[UniqueValidator(queryset=User.objects.all())]
     )
-    password = serializers.CharField(
-        allow_null=False
-    )
+    password = serializers.CharField(allow_null=False)
     first_name = serializers.CharField(allow_null=False)
     last_name = serializers.CharField(allow_null=False)
     phone_number = serializers.RegexField("[0-9]{10}")
@@ -31,5 +33,29 @@ class UserSerializer(serializers.ModelSerializer):
             "unique_id",
             "id",
             "role",
-            "password"
+            "password",
         ]
+
+
+class FileSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [
+        ".xlsx",
+    ]
+
+    class Meta:
+        model = File
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class DataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FileData
+        fields = "__all__"

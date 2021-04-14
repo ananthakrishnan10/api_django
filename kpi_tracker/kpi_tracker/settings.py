@@ -146,8 +146,8 @@ REST_FRAMEWORK = {
     ),
 }
 
-ACCESS_TOKEN_LIFETIME = datetime.timedelta(hours=1)
-REFRESH_TOKEN_LIFETIME = datetime.timedelta(hours=1)
+ACCESS_TOKEN_LIFETIME = datetime.timedelta(hours=24)
+REFRESH_TOKEN_LIFETIME = datetime.timedelta(hours=24)
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": ACCESS_TOKEN_LIFETIME,
@@ -155,3 +155,8 @@ SIMPLE_JWT = {
     "ALGORITHM": "HS256",
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
+
+FILE_UPLOAD_HANDLERS = (
+    "django_excel.ExcelMemoryFileUploadHandler",
+    "django_excel.TemporaryExcelFileUploadHandler",
+)
