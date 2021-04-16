@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth &#8212; KPI Tracker 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Views" href="views.html" />
+    <link rel="prev" title="Welcome to KPI Tracker’s documentation!" href="../index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="views.html" title="Views"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to KPI Tracker’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">KPI Tracker 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Auth</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="auth">
+<h1>Auth<a class="headerlink" href="#auth" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register">
+<h2>Register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/auth/register/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;ananthan2@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+<span class="nt">&quot;project_name&quot;</span><span class="p">:</span><span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+<span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+<span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+<span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="s2">&quot;Anantha&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span><span class="s2">&quot;krishnan&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;authorization&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE4NDA3MTQ1LCJqdGkiOiJlZDRjNTdkMTdmYjU0ZDg1ODk3ZTE0YzQ4ZTM1NmI5ZSIsInVzZXJfaWQiOjE1LCJlbWFpbCI6ImFuYW50aGFuMkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlNZNjMxMCIsImlkIjoxNSwiZmlyc3RfbmFtZSI6IkFuYW50aGEiLCJsYXN0X25hbWUiOiJrcmlzaG5hbiJ9.oX9gTIJO4atneluiq_zBP10AEoxgOxB-v_zdWX2yIi8&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxODQwNzE0NSwianRpIjoiZDJmYzg5YWYzZTAxNGE4N2FjNzBiY2U3MzYyOGMwYWEiLCJ1c2VyX2lkIjoxNX0.rE_XPBiUFv_SBTMkmfaKQNUN2kO1vLAY0hG3tGQX4qM&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;ananthan2@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;SY6310&quot;</span><span class="p">,</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anantha&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span>
+</pre></div>
+</div>
+<p>}</p>
+</div>
+<div class="section" id="login">
+<h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/auth/login/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="s2">&quot;ananthan2@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;1234&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;authorization&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE4NDA3MTQ1LCJqdGkiOiJlZDRjNTdkMTdmYjU0ZDg1ODk3ZTE0YzQ4ZTM1NmI5ZSIsInVzZXJfaWQiOjE1LCJlbWFpbCI6ImFuYW50aGFuMkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlNZNjMxMCIsImlkIjoxNSwiZmlyc3RfbmFtZSI6IkFuYW50aGEiLCJsYXN0X25hbWUiOiJrcmlzaG5hbiJ9.oX9gTIJO4atneluiq_zBP10AEoxgOxB-v_zdWX2yIi8&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxODQwNzE0NSwianRpIjoiZDJmYzg5YWYzZTAxNGE4N2FjNzBiY2U3MzYyOGMwYWEiLCJ1c2VyX2lkIjoxNX0.rE_XPBiUFv_SBTMkmfaKQNUN2kO1vLAY0hG3tGQX4qM&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;ananthan2@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;SY6310&quot;</span><span class="p">,</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anantha&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="refresh-token">
+<h2>Refresh Token<a class="headerlink" href="#refresh-token" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/auth/refresh_token/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;refresh_token&quot;</span> <span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE4NTAxNzE5LCJqdGkiOiJjN2YxMjAzYjljNDA0MDA2ODJlYjJlYTZjYTg4NDVkNSIsInVzZXJfaWQiOjIsImVtYWlsIjoiYW5hbnRoYW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJTWTk0MDAiLCJpZCI6MiwiZmlyc3RfbmFtZSI6IkFuYW50aGEiLCJsYXN0X25hbWUiOiJrcmlzaG5hbiJ9.QO1I6XoiZDj4Napib645SnKWpiIiaqftpWvST_BABh4&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;authorization&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE4NTQ3OTY0LCJqdGkiOiI4MDg2ZjM4ZTc1Yjk0NDAyOWFiZWVkYmFhYmY1YTZkNCIsInVzZXJfaWQiOjIsImVtYWlsIjoiYW5hbnRoYW4yQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiU1k2MzYwIiwiaWQiOjIsImZpcnN0X25hbWUiOiJBbmFudGhhIiwibGFzdF9uYW1lIjoia3Jpc2huYW4ifQ.OobA26ljZbfLT6sJWaELrJv253U9I-exZ5WxGZ8JX9s&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxODU0Nzk2NCwianRpIjoiYzVkMzc0MzZiYzY3NDQ3ODhiY2ZkMzgyMGFiZWUxYTgiLCJ1c2VyX2lkIjoyfQ.QfXkoEOUV2x9FwQ87WPzQKiu8Kj1ENVIOhsqRlsO9xE&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Auth</a><ul>
+<li><a class="reference internal" href="#register">Register</a></li>
+<li><a class="reference internal" href="#login">Login</a></li>
+<li><a class="reference internal" href="#refresh-token">Refresh Token</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Welcome to KPI Tracker’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="views.html"
+                        title="next chapter">Views</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/all-about-me.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="views.html" title="Views"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to KPI Tracker’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">KPI Tracker 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Auth</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Anantha Krishnan.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

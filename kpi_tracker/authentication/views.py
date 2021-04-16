@@ -149,9 +149,4 @@ class RefreshTokenView(APIView):
         refresh_token = token
         login_response_obj = LoginRespObj(access_token, refresh_token, user)
         login_response = LoginResponseSerializer(login_response_obj).data
-        login_response["email"] = user.email
-        login_response["username"] = user.username
-        login_response["id"] = user.id
-        login_response["first_name"] = user.first_name
-        login_response["last_name"] = user.last_name
         return Response(login_response, status=status.HTTP_200_OK)

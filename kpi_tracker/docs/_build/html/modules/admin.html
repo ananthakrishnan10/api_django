@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin &#8212; KPI Tracker 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Auth" href="auth.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="auth.html" title="Auth"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">KPI Tracker 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Admin</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="admin">
+<h1>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-user">
+<h2>Create User<a class="headerlink" href="#create-user" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/administrator/user/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;arjun1@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Arjun&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span><span class="p">,</span>
+<span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+<span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+<span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+<span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>}</p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User added successfully&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-user">
+<h2>List User<a class="headerlink" href="#list-user" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/administrator/user/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">{</span>
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;SY6360&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;ananthan@gmail.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anantha&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;unique_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SY6360&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;SY1859&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;arjun1@gmail.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Arjun&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;unique_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SY1859&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span>
+<span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="retrieve-user-by-id">
+<h2>Retrieve user by id<a class="headerlink" href="#retrieve-user-by-id" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/administrator/user/{id}/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;admin@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;unique_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;pbkdf2_sha256$260000$lq2JcW0kLgynJkiZPqy6Dy$5IyFGKM3Am8X4ZpNoQkq3rKyVGOXFJ6T8xJq59vnQFk=&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit-user-by-id">
+<h2>Edit user by id<a class="headerlink" href="#edit-user-by-id" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/administrator/user/{id}/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;arjun1@gmail.com&quot;</span><span class="p">,</span>
+<span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+<span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Arjun&quot;</span><span class="p">,</span>
+<span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span><span class="p">,</span>
+<span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+<span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+<span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+<span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>}</p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User updated successfully&quot;</span><span class="p">,</span>
+<span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;arjun@gmail.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Arjun&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;krishnan&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;new project&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;velemparambu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phone_number&quot;</span><span class="p">:</span> <span class="s2">&quot;8281837694&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-user-by-id">
+<h2>Delete user by id<a class="headerlink" href="#delete-user-by-id" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/administrator/user/{id}/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User deleted successfully&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upload-excel">
+<h2>Upload excel<a class="headerlink" href="#upload-excel" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/administrator/file_upload/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">body parameters</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;input.xlsx&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;File upload successfully&quot;</span><span class="p">,</span>
+<span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;4265&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;4265&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;278&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;2458&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1831&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1571&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;564&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1779&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;602&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1082&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;564&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1630&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;594&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-data-from-excel">
+<h2>Get data from Excel<a class="headerlink" href="#get-data-from-excel" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/administrator/file_data/</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">response</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;4265&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;4265&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;278&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;2458&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1831&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;614&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1571&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month_target&quot;</span><span class="p">:</span> <span class="s2">&quot;564&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_actual&quot;</span><span class="p">:</span> <span class="s2">&quot;1779&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ytd_target&quot;</span><span class="p">:</span> <span class="s2">&quot;602&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Admin</a><ul>
+<li><a class="reference internal" href="#create-user">Create User</a></li>
+<li><a class="reference internal" href="#list-user">List User</a></li>
+<li><a class="reference internal" href="#retrieve-user-by-id">Retrieve user by id</a></li>
+<li><a class="reference internal" href="#edit-user-by-id">Edit user by id</a></li>
+<li><a class="reference internal" href="#delete-user-by-id">Delete user by id</a></li>
+<li><a class="reference internal" href="#upload-excel">Upload excel</a></li>
+<li><a class="reference internal" href="#get-data-from-excel">Get data from Excel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="auth.html"
+                        title="previous chapter">Auth</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/admin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="auth.html" title="Auth"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">KPI Tracker 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Admin</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Anantha Krishnan.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 from pyexcel_xlsx import get_data
@@ -11,7 +12,7 @@ from authentication.models import User
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import FileData
-from .serializer import UserSerializer, FileSerializer, DataSerializer
+from .serializer import UserSerializer, FileSerializer, DataSerializer, UpdateUserSerializer
 from authentication import IsAdminAccessible
 import random
 import json
@@ -47,10 +48,40 @@ class UserCreateList(generics.ListCreateAPIView):
         return Response(res_data, status.HTTP_201_CREATED)
 
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, IsAdminAccessible]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class UserDetail(APIView):
+    """
+    Retrieve, update or delete a snippet instance.
+    """
+    def get_object(self, pk):
+        try:
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = UserSerializer(snippet)
+        return Response(serializer.data, status.HTTP_200_OK)
+
+    def put(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = UpdateUserSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            res_data = {
+                "message": "User updated successfully",
+                "data": serializer.data
+            }
+            return Response(res_data, status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        snippet.delete()
+        res_data = {
+            "message" : "User deleted successfully"
+        }
+        return Response(res_data, status.HTTP_200_OK)
 
 
 class FileView(CreateAPIView):
