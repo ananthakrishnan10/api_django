@@ -4,3 +4,4 @@ djangorestframework==3.12.4
 djangorestframework-simplejwt==4.6.0
 pandas==1.2.3
 drf-yasg==1.20.0
+Sphinx==3.5.4
