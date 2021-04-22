@@ -59,9 +59,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 
 class FileSerializer(serializers.ModelSerializer):
 
-    ALLOWED_TYPES = [
-        ".xlsx", ".xls", ".csv"
-    ]
+    ALLOWED_TYPES = [".xlsx", ".xls", ".csv"]
 
     class Meta:
         model = File

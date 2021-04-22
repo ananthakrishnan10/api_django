@@ -8,27 +8,48 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='File',
+            name="File",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('file', models.FileField(upload_to='')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("file", models.FileField(upload_to="")),
             ],
         ),
         migrations.CreateModel(
-            name='FileData',
+            name="FileData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('month', models.CharField(max_length=100)),
-                ('month_actual', models.CharField(max_length=100)),
-                ('month_target', models.CharField(max_length=100)),
-                ('ytd_actual', models.CharField(max_length=100)),
-                ('ytd_target', models.CharField(max_length=100)),
-                ('file_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='administrator.file')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("month", models.CharField(max_length=100)),
+                ("month_actual", models.CharField(max_length=100)),
+                ("month_target", models.CharField(max_length=100)),
+                ("ytd_actual", models.CharField(max_length=100)),
+                ("ytd_target", models.CharField(max_length=100)),
+                (
+                    "file_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="administrator.file",
+                    ),
+                ),
             ],
         ),
     ]

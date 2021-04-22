@@ -11,7 +11,12 @@ from authentication.models import User
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import FileData
-from .serializer import UserSerializer, FileSerializer, DataSerializer, UpdateUserSerializer
+from .serializer import (
+    UserSerializer,
+    FileSerializer,
+    DataSerializer,
+    UpdateUserSerializer,
+)
 from authentication import IsAdminAccessible
 import random
 import json
@@ -68,19 +73,14 @@ class UserDetail(APIView):
         serializer = UpdateUserSerializer(snippet, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            res_data = {
-                "message": "User updated successfully",
-                "data": serializer.data
-            }
+            res_data = {"message": "User updated successfully", "data": serializer.data}
             return Response(res_data, status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
         snippet = self.get_object(pk)
         snippet.delete()
-        res_data = {
-            "message": "User deleted successfully"
-        }
+        res_data = {"message": "User deleted successfully"}
         return Response(res_data, status.HTTP_200_OK)
 
 
@@ -94,14 +94,14 @@ class FileView(CreateAPIView):
         serializer = FileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            req_data = request.FILES['file']
+            req_data = request.FILES["file"]
             file_extension = os.path.splitext(req_data.name)[1]
 
-            if file_extension == '.xlsx':
-                df = pandas.read_excel(req_data, engine='openpyxl')
-            elif file_extension == '.xls':
+            if file_extension == ".xlsx":
+                df = pandas.read_excel(req_data, engine="openpyxl")
+            elif file_extension == ".xls":
                 df = pandas.read_excel(req_data)
-            elif file_extension == '.csv':
+            elif file_extension == ".csv":
                 df = pandas.read_csv(req_data.name)
             else:
                 raise Exception("File not supported")
@@ -125,8 +125,11 @@ class FileView(CreateAPIView):
                     return Response(res_data, status.HTTP_400_BAD_REQUEST)
         else:
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
-        res_data = {"message": "File upload successfully",
-                    "file_id": serializer.data["id"], "data": serializers_data}
+        res_data = {
+            "message": "File upload successfully",
+            "file_id": serializer.data["id"],
+            "data": serializers_data,
+        }
         return Response(res_data, status.HTTP_200_OK)
 
 
