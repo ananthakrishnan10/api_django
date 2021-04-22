@@ -1,7 +1,6 @@
+import os
+import pandas
 from django.http import Http404
-from django.shortcuts import render
-
-from pyexcel_xlsx import get_data
 from rest_framework.generics import CreateAPIView
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
@@ -52,6 +51,7 @@ class UserDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
+
     def get_object(self, pk):
         try:
             return User.objects.get(pk=pk)
@@ -79,13 +79,14 @@ class UserDetail(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         res_data = {
-            "message" : "User deleted successfully"
+            "message": "User deleted successfully"
         }
         return Response(res_data, status.HTTP_200_OK)
 
 
 class FileView(CreateAPIView):
-    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [IsAuthenticated, IsAdminAccessible]
+    permission_classes = [AllowAny]
     serializer_class = FileSerializer
     parser_classes = [MultiPartParser]
 
@@ -93,19 +94,27 @@ class FileView(CreateAPIView):
         serializer = FileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            req_data = request.FILES['file']
+            file_extension = os.path.splitext(req_data.name)[1]
 
-            data = get_data(request.data["file"])
-            data = (json.loads(json.dumps(data)))["Sheet1"]
+            if file_extension == '.xlsx':
+                df = pandas.read_excel(req_data, engine='openpyxl')
+            elif file_extension == '.xls':
+                df = pandas.read_excel(req_data)
+            elif file_extension == '.csv':
+                df = pandas.read_csv(req_data.name)
+            else:
+                raise Exception("File not supported")
             serializers_data = []
-            for d in data[1:]:
+            for index, row in df.iterrows():
                 try:
                     input_data = {
                         "file_id": serializer.data["id"],
-                        "month": d[0],
-                        "month_actual": d[1],
-                        "month_target": d[2],
-                        "ytd_actual": d[3],
-                        "ytd_target": d[4],
+                        "month": row[0],
+                        "month_actual": row[1],
+                        "month_target": row[2],
+                        "ytd_actual": row[3],
+                        "ytd_target": row[4],
                     }
                     dataSerializer = DataSerializer(data=input_data)
                     dataSerializer.is_valid(raise_exception=True)
@@ -116,14 +125,16 @@ class FileView(CreateAPIView):
                     return Response(res_data, status.HTTP_400_BAD_REQUEST)
         else:
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
-        res_data = {"message": "File upload successfully", "data": serializers_data}
+        res_data = {"message": "File upload successfully",
+                    "file_id": serializer.data["id"], "data": serializers_data}
         return Response(res_data, status.HTTP_200_OK)
 
 
 class DataList(generics.ListAPIView):
     queryset = FileData.objects.order_by("-id")[:1]
     serializer_class = DataSerializer
-    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [IsAuthenticated, IsAdminAccessible]
+    permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`

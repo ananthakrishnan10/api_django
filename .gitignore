@@ -160,6 +160,6 @@ Thumbs.db
 
 
 # End of https://www.toptal.com/developers/gitignore/api/django
-*.xlsx
-*.xls
-*.csv
+**/.xlsx
+**/.xls
+**/.csv

@@ -1,4 +1,3 @@
-import json
 import os
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
@@ -61,7 +60,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
 
     ALLOWED_TYPES = [
-        ".xlsx",
+        ".xlsx", ".xls", ".csv"
     ]
 
     class Meta:
@@ -71,7 +70,7 @@ class FileSerializer(serializers.ModelSerializer):
     def validate_file(self, value):
         file_extension = os.path.splitext(value.name)[1]
         if file_extension not in self.ALLOWED_TYPES:
-            msg = "file accept only .xlsx"
+            msg = "file accept only .xlsx, .xls, .csv"
             raise serializers.ValidationError(msg)
         return value
 
