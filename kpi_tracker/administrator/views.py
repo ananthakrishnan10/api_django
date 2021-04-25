@@ -105,8 +105,8 @@ class UserDetail(APIView):
 
 
 class OutGoingQuantityView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = OutGoingQuantityFileSerializer
     parser_classes = [MultiPartParser]
 
@@ -158,8 +158,8 @@ class OutGoingQuantityView(CreateAPIView):
 class OutGoingQuantityDataList(generics.ListAPIView):
     queryset = OutGoingQuantityFilesData.objects.order_by("-id")[:1]
     serializer_class = OutGoingQuantityDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -175,8 +175,8 @@ class OutGoingQuantityDataList(generics.ListAPIView):
 
 
 class SupplierQuantityView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = SupplierQuantityFileSerializer
     parser_classes = [MultiPartParser]
 
@@ -226,8 +226,8 @@ class SupplierQuantityView(CreateAPIView):
 class SupplierQuantityDataList(generics.ListAPIView):
     queryset = SupplierQuantityFilesData.objects.order_by("-id")[:1]
     serializer_class = SupplierQuantityDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -243,8 +243,8 @@ class SupplierQuantityDataList(generics.ListAPIView):
 
 
 class OTDMView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = OTDMFilesSerializer
     parser_classes = [MultiPartParser]
 
@@ -294,8 +294,8 @@ class OTDMView(CreateAPIView):
 class OTDMDataList(generics.ListAPIView):
     queryset = OTDMFilesData.objects.order_by("-id")[:1]
     serializer_class = OTDMFilesDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -311,8 +311,8 @@ class OTDMDataList(generics.ListAPIView):
 
 
 class DINView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = DINFilesSerializer
     parser_classes = [MultiPartParser]
 
@@ -363,8 +363,8 @@ class DINView(CreateAPIView):
 class DINDataList(generics.ListAPIView):
     queryset = DINFilesData.objects.order_by("-id")[:1]
     serializer_class = DINFilesDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -380,8 +380,8 @@ class DINDataList(generics.ListAPIView):
 
 
 class NDVCTurnoverView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = NDVCTurnoverFilesSerializer
     parser_classes = [MultiPartParser]
 
@@ -431,8 +431,8 @@ class NDVCTurnoverView(CreateAPIView):
 class NDVCTurnoverDataList(generics.ListAPIView):
     queryset = NDVCTurnoverFilesData.objects.order_by("-id")[:1]
     serializer_class = NDVCTurnoverFilesDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -448,8 +448,8 @@ class NDVCTurnoverDataList(generics.ListAPIView):
 
 
 class IndustrialEfficiencyView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = IndustrialEfficiencyFilesSerializer
     parser_classes = [MultiPartParser]
 
@@ -501,8 +501,8 @@ class IndustrialEfficiencyView(CreateAPIView):
 class IndustrialEfficiencyDataList(generics.ListAPIView):
     queryset = IndustrialEfficiencyFilesData.objects.order_by("-id")[:1]
     serializer_class = IndustrialEfficiencyFilesDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
@@ -518,8 +518,8 @@ class IndustrialEfficiencyDataList(generics.ListAPIView):
 
 
 class NEEView(CreateAPIView):
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
     serializer_class = NEEFilesSerializer
     parser_classes = [MultiPartParser]
 
@@ -569,8 +569,8 @@ class NEEView(CreateAPIView):
 class NEEDataList(generics.ListAPIView):
     queryset = NEEFilesData.objects.order_by("-id")[:1]
     serializer_class = NEEFilesDataSerializer
-    # permission_classes = [IsAuthenticated, IsAdminAccessible]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminAccessible]
+    # permission_classes = [AllowAny]
 
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
