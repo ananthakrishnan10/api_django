@@ -2,7 +2,22 @@ import os
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from .models import File, FileData
+from .models import (
+    SupplierQuantityFiles,
+    SupplierQuantityFilesData,
+    OutGoingQuantityFilesData,
+    OutGoingQuantityFiles,
+    OTDMFiles,
+    OTDMFilesData,
+    DINFiles,
+    DINFilesData,
+    NDVCTurnoverFiles,
+    NDVCTurnoverFilesData,
+    IndustrialEfficiencyFiles,
+    IndustrialEfficiencyFilesData,
+    NEEFiles,
+    NEEFilesData,
+)
 from authentication.models import User
 
 
@@ -57,23 +72,155 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         ]
 
 
-class FileSerializer(serializers.ModelSerializer):
+class OutGoingQuantityFileSerializer(serializers.ModelSerializer):
 
-    ALLOWED_TYPES = [".xlsx", ".xls", ".csv"]
+    ALLOWED_TYPES = [".xlsx", ".xls"]
 
     class Meta:
-        model = File
+        model = OutGoingQuantityFiles
         fields = "__all__"
 
     def validate_file(self, value):
         file_extension = os.path.splitext(value.name)[1]
         if file_extension not in self.ALLOWED_TYPES:
-            msg = "file accept only .xlsx, .xls, .csv"
+            msg = "file accept only .xlsx, .xls"
             raise serializers.ValidationError(msg)
         return value
 
 
-class DataSerializer(serializers.ModelSerializer):
+class OutGoingQuantityDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FileData
+        model = OutGoingQuantityFilesData
+        fields = "__all__"
+
+
+class SupplierQuantityFileSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = SupplierQuantityFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class SupplierQuantityDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SupplierQuantityFilesData
+        fields = "__all__"
+
+
+class OTDMFilesSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = OTDMFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class OTDMFilesDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OTDMFilesData
+        fields = "__all__"
+
+
+class DINFilesSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = DINFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class DINFilesDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DINFilesData
+        fields = "__all__"
+
+
+class NDVCTurnoverFilesSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = NDVCTurnoverFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class NDVCTurnoverFilesDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NDVCTurnoverFilesData
+        fields = "__all__"
+
+
+class IndustrialEfficiencyFilesSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = IndustrialEfficiencyFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class IndustrialEfficiencyFilesDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IndustrialEfficiencyFilesData
+        fields = "__all__"
+
+
+class NEEFilesSerializer(serializers.ModelSerializer):
+
+    ALLOWED_TYPES = [".xlsx", ".xls"]
+
+    class Meta:
+        model = NEEFiles
+        fields = "__all__"
+
+    def validate_file(self, value):
+        file_extension = os.path.splitext(value.name)[1]
+        if file_extension not in self.ALLOWED_TYPES:
+            msg = "file accept only .xlsx, .xls"
+            raise serializers.ValidationError(msg)
+        return value
+
+
+class NEEFilesDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NEEFilesData
         fields = "__all__"

@@ -170,7 +170,7 @@ Upload excel
 .. code-block:: JSON
 
     {
-    "message": "File upload successfully",
+    "message": "Supplier_quantity_Files upload successfully",
     "data": [
         {
             "id": 1,
